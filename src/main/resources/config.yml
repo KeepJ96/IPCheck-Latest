@@ -1,0 +1,84 @@
+# ============================================================================ #
+#
+# IP-Check v2.1.0 b2088 | RP-Commons v1.04 b87 -- Author: Jnk1296
+# For more information visit http://dev.bukkit.org/server-mods/ip-check-jnk/
+#
+# IT IS RECOMMENDED THAT YOU READ THE CONFIGURATION EXPLANATION BEFORE MAKING
+# MODIFICATIONS TO ANY OF THESE VALUES.
+#
+# Configuration Explanation can be found at:
+# http://dev.bukkit.org/bukkit-plugins/ip-check-jnk/pages/default-configuration/
+#
+# MySQL pooling functions provided by c3p0.
+#
+# This product includes GeoLite data created by MaxMind, available from:
+# http://www.maxmind.com/
+#
+# NOTE: To disable Metrics Monitoring or updating, disable modules METRICSYS
+# and UPDATESYS in module-control.yml, respectively.
+#
+# ============================================================================ #
+
+# Localization Language Selection
+# Default language is english if empty or "en".
+# To switch language put in the name of the language-file (e.g. "de" for de.yml)
+language: "en"
+
+# =============================[MySQL Settings]=============================== #
+# Use MySQL instead of SQLite?
+use-mysql: false
+
+# MySQL Connection Pool Size (number of connections available to IP-Check)
+mysql-pool-size: 1
+
+# Login details if backend is mysql
+dbUsername: "root"
+dbPassword: ""
+dbHostname: "127.0.0.1"
+dbName: "ip-check"
+dbPort: 3306
+# ============================================================================ #
+
+# ===========================[Notification System]============================ #
+# Should show descriptive notifications?
+descriptive-notice: false
+
+# Set a minimum number of accounts to have before being notified
+min-account-notify-threshold: 1
+
+# Should use Login Checking?
+notify-on-login: true
+
+# Should warn when a banned player attempts to join
+warn-on-rejoin-attempt: false
+# ============================================================================ #
+
+# ============================[Secure (Ban) Mode]============================= #
+# Set a minimum number of accounts to have before being kicked
+secure-kick-threshold: 1
+
+# Set Secure Kick Message
+secure-kick-message: "Multiple Accounts Not Permitted."
+# ============================================================================ #
+
+# ======================[GeoIP / Country Block Settings]====================== #
+# Allow IP-Check to automatically download the GeoIP Database
+allow-geoip-download: true
+
+# What message do you want to display to people who's country is blocked?
+blocked-message: "Your country has been blocked from joining this server."
+
+# Which countries do you want to block from joining your server?
+country-blacklist: []
+# ============================================================================ #
+
+# ===============================[Miscellaneous]============================== #
+# Set Ban Message
+ban-message: "Banned for Multi-Accounting."
+
+# Set Kick Message
+kick-message: "Kicked from server."
+
+# MC Hammer!
+config-version: 1
+# ============================================================================ #

@@ -1,0 +1,235 @@
+# ============================================================================ #
+#
+# IP-Check v2.1.0 b2088 | RP-Commons v1.04 b87 -- Author: Jnk1296
+# For more information visit http://dev.bukkit.org/server-mods/ip-check-jnk/
+#
+# IT IS RECOMMENDED THAT YOU READ THE CONFIGURATION EXPLANATION BEFORE MAKING
+# MODIFICATIONS TO ANY OF THESE VALUES.
+#
+# DO NOT ATTEMPT TO MAKE CHANGES TO THE CONFIGURATION WHILE THE PLUGIN IS
+# RUNNING. YOUR CHANGES WILL BE OVER-WRITTEN.
+#
+# Configuration Explanation can be found at:
+# http://dev.bukkit.org/bukkit-plugins/ip-check-jnk/pages/default-configuration/
+#
+# MySQL pooling functions provided by c3p0.
+#
+# This product includes GeoLite data created by MaxMind, available from:
+# http://www.maxmind.com/
+#
+# ============================================================================ #
+#
+# MODULE CONTROL CONFIGURATION
+#
+# This configuration is responsible for controlling which parts of IP-Check
+# are enabled and which are not. Disabling a module will result in loss of
+# the functionality provided by that module, as well as any associated commands
+# that module may have provided.
+#
+# NOTE: Disabling a Module is not a permanent choice, and can be undone easily.
+# Disabling a module will not result in any loss of data.
+#
+# NOTE: Changes made to this configuration file will not take effect until
+# either A) the plugin is reloaded, or B) the server is restarted. Do not
+# attempt to modify this configuration while the plugin is running. Your
+# changes will be over-written.
+#
+# ============================================================================ #
+#
+# EXPLANATION OF NOTATION
+#
+# Above Each Module the name of the specific module is listed, along with
+# a brief explanation of it's function. Additionally, a list of that module's
+# dependencies and children is provided, so as to allow the end-user to better
+# understand the result of disabling or enabling a certain function.
+#
+# 'Module Dependencies' refers to the modules that that particular module
+# requires in order to function.
+#
+# 'Children' refers to the modules that depend on that particular module.
+#
+# 'Commands' denotes the commands which that module provides to IP-Check.
+#
+# ============================================================================ #
+
+# Active Mode System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Automatically bans any accounts that attempt to join your server which are
+# linked to previously banned IP-Addresses.
+# ============================================================================ #
+# MODULE DEPENDENCIES: BANCTRSYS (Ban Control System)
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+ACTIVESYS: true
+
+# Ban Control System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Manages Server Bans, banning of accounts linked to banned IPs, as well as
+# providing main ban functionality.
+# ============================================================================ #
+# MODULE DEPENDENCIES: None
+# ============================================================================ #
+# CHILDREN: ACTIVESYS (Active Mode System), BANMSGSYS (Ban Messages System),
+# SECBANSYS (Secure Ban System)
+# ============================================================================ #
+# COMMANDS: /ipc ban, /ipc unban, /ipc banall, /ipc unbanall, /ipc sban
+# ============================================================================ #
+BANCTRSYS: true
+
+# Ban Messages System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Provides Logging Functionality for Ban Messages received from Ban Commands.
+# If this Module is disabled, IP-Check will attempt a pass-through pipe to
+# Essentials in order to attempt to draw ban messages from it instead.
+# ============================================================================ #
+# MODULE DEPENDENCIES: BANCTRSYS (Ban Control System)
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+# COMMANDS: /ipc modban
+# ============================================================================ #
+BANMSGSYS: true
+
+# Country Block System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Allows the blocking of all Players and IPs originating from specified
+# countries.
+# ============================================================================ #
+# MODULE DEPENDENCIES: GEOIPRSYS (GeoIP Control System)
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+# COMMANDS: /ipc block, /ipc unblock
+# ============================================================================ #
+CNTBLKSYS: true
+
+# Exemption System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Allows the Exempting of Players and IP-Addresses from NOTIFYSYS
+# (Notification System), CNTBLKSYS (Country Block System), SECURESYS (Secure
+# Mode System) and SECKCKSYS (Secure Kick System). Allows players to bypass
+# login checks and Secure Mode.
+# ============================================================================ #
+# MODULE DEPENDENCIES: None
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+# COMMANDS: /ipc exempt, /ipc unexempt, /ipc exempt-list
+# ============================================================================ #
+EXEMPTSYS: true
+
+# GeoIP Control System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Provides Global Positioning Data (Statistical Information) used by Reports
+# and Location Blocks (CNTBLKSYS (Country Block System)).
+# ============================================================================ #
+# MODULE DEPENDENCIES: None
+# ============================================================================ #
+# CHILDREN: CNTBLKSYS (Country Block System)
+# ============================================================================ #
+GEOIPRSYS: true
+
+# Kick System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Allows for the kicking of all players who are associated with an IP with one
+# username.
+# ============================================================================ #
+# MODULE DEPENDENCIES: None
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+# COMMANDS: /ipc kick
+# ============================================================================ #
+KCKSYSTEM: true
+
+# Metrics Monitoring System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Monitors various aspects of plugin usage and reports results to mcstats.org
+# ============================================================================ #
+# MODULE DEPENDENCIES: None
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+METRICSYS: true
+
+# Notification System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Provides Staff Notifications to players logging in who have multiple accounts
+# as well as banned players attempting a rejoin and ban/kick messages.
+# ============================================================================ #
+# MODULE DEPENDENCIES: None
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+NOTIFYSYS: true
+
+# Protection System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Exempts players from specific functions of SECKCKSYS and BANCTRSYS, prevents
+# players from being banned or otherwise locked out of the server by IP-Check.
+# ============================================================================ #
+# MODULE DEPENDENCIES: None
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+# COMMANDS: /ipc protect, /ipc unprotect
+# ============================================================================ #
+PROTCTSYS: true
+
+# Secure Ban System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Bans accounts which are not authorized by the Secure Mode System (SECURESYS).
+# ============================================================================ #
+# MODULE DEPENDENCIES: SECURESYS (Secure Mode System), BANCTRSYS (Ban Control)
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+SECBANSYS: true
+
+# Secure Mode System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Prevents players from creating multiple accounts as specified by
+# configuration option secure-kick-threshold
+# ============================================================================ #
+# MODULE DEPENDENCIES: None
+# ============================================================================ #
+# CHILDREN: SECBANSYS (Secure Ban System)
+# ============================================================================ #
+SECURESYS: true
+
+# Update System
+# ============================================================================ #
+# DESCRIPTION
+# ============================================================================ #
+# Connects to dev.bukkit.org and checks for any new updates to the plugin.
+# ============================================================================ #
+# MODULE DEPENDENCIES: None
+# ============================================================================ #
+# CHILDREN: None
+# ============================================================================ #
+UPDATESYS: true
